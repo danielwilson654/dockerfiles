@@ -26,6 +26,7 @@ RUN set -ex && \
                                 libev-dev \
                                 libtool \
                                 linux-headers \
+                                libsodium-dev \
                                 openssl-dev \
                                 mbedtls-dev \
                                 pcre-dev \
