@@ -67,6 +67,7 @@ CMD ss-server --fast-open \
               -t $TIMEOUT \
               -d $DNS_ADDR \
               -d $DNS_ADDR_2 \
+              --no-delay \
               -u \
               --plugin $PLUGIN \
               --plugin-opts $PLUGIN_OPTS
