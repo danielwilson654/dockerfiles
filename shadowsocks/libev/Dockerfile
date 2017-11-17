@@ -3,7 +3,7 @@ MAINTAINER UmVnaXN0ZXIgcmVnaXN0ZXJkZWRpY2F0ZWQrZG9ja2VyKGF0KWdtYWlsLmNvbQo=
 
 ARG SS_VER=3.1.0
 ARG SS_URL=https://github.com/shadowsocks/shadowsocks-libev/releases/download/v$SS_VER/shadowsocks-libev-$SS_VER.tar.gz
-ARG OBFS_VER=0.0.4
+ARG OBFS_VER=0.0.5
 ARG OBFS_URL=https://github.com/shadowsocks/simple-obfs/archive/v$OBFS_VER.tar.gz
 
 ENV SERVER_ADDR 0.0.0.0
@@ -40,7 +40,7 @@ RUN set -ex && \
 
     cd /tmp/obfs && \
     curl -sSL $OBFS_URL | tar xz --strip 1 && \
-    curl -sSL https://github.com/shadowsocks/libcork/archive/3bcb8324431d3bd4be5e4ff2a4323b455c8d5409.tar.gz | tar xz --strip 1 -C libcork && \
+    curl -sSL https://github.com/shadowsocks/libcork/archive/29d7cbafc4b983192baeb0c962ab1ff591418f56.tar.gz | tar xz --strip 1 -C libcork && \
     ./autogen.sh && \
     ./configure --prefix=/usr --disable-documentation && \
     make install && \
