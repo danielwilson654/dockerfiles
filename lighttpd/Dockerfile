@@ -1,11 +1,13 @@
-FROM alpine:3.4
-MAINTAINER UmVnaXN0ZXIgcmVnaXN0ZXJkZWRpY2F0ZWQrZG9ja2VyKGF0KWdtYWlsLmNvbQo=
+FROM debian:7.11-slim
+#MAINTAINER UmVnaXN0ZXIgcmVnaXN0ZXJkZWRpY2F0ZWQrZG9ja2VyKGF0KWdtYWlsLmNvbQo=
 
 ENV UID     100
 ENV GID     101
 
 RUN set -ex && \
-    apk add --no-cache lighttpd
+    apt-get add --no-cache lighttpd &&\
+    apt-get -y clean &&\
+    rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 COPY lighttpd.conf /etc/lighttpd/lighttpd.conf
